@@ -61,7 +61,7 @@ function Home() {
 				Immerse Yourself in the Splendid of Our Hotels
 			</h2>
 			{/* products */}
-			{/* <div className='   grid grid-cols-2 sm:grid-cols-4 gap-5 mt-14 w-[100%] overflow-x-hidden'>
+			<div className='   grid grid-cols-2 sm:grid-cols-4 gap-5 mt-14 w-[100%] overflow-x-hidden'>
 				{rooms.map((room, idx) => (
 					<Link to={`/details/${room.id}`} key={idx}>
 						<div className='flex flex-col items-center justify-center space-y-6 relative group '>
@@ -91,7 +91,7 @@ function Home() {
 						</div>
 					</Link>
 				))}
-			</div> */}
+			</div>
 
 			{/* texts */}
 			<div className='flex  flex-col items-center justify-center sm:flex-row space-y-6 sm:space-x-20 sm:space-y-0 mt-14'>
