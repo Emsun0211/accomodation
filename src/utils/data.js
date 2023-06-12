@@ -3,8 +3,8 @@ export const rooms = [
 		id: 1,
 		name: "Radiant Elegance",
 		img: [
-			"https://res.cloudinary.com/dxz1djlc2/image/upload/v1686396443/accomodation/acc2_xnmqgc.jpg",
-			"https://res.cloudinary.com/dxz1djlc2/image/upload/v1686396726/accomodation/acc13_lrefwg.jpg",
+			"https://res.cloudinary.com/dxz1djlc2/image/upload/v1686600037/accomodation/newAccomodation/acc2-min_upy5ct.jpg",
+			"https://res.cloudinary.com/dxz1djlc2/image/upload/v1686600302/accomodation/newAccomodation/acc12-min_rrumsi.jpg",
 		],
 		qty: 1,
 		short_description: "Elegant Always",
@@ -27,8 +27,8 @@ export const rooms = [
 		id: 2,
 		name: "Opulent Oasis",
 		img: [
-			"https://res.cloudinary.com/dxz1djlc2/image/upload/v1686396470/accomodation/acc3_alzof4.jpg",
-			"https://res.cloudinary.com/dxz1djlc2/image/upload/v1686396710/accomodation/acc12_tg3kmh.jpg",
+			"https://res.cloudinary.com/dxz1djlc2/image/upload/v1686600048/accomodation/newAccomodation/acc3-min_zsvzqt.jpg",
+			"https://res.cloudinary.com/dxz1djlc2/image/upload/v1686600274/accomodation/newAccomodation/acc10-min_bu7bw0.jpg",
 		],
 		qty: 1,
 		short_description: "Live in Comfort",
@@ -51,8 +51,8 @@ export const rooms = [
 		id: 3,
 		name: "Tranquil Escapes",
 		img: [
-			"https://res.cloudinary.com/dxz1djlc2/image/upload/v1686396525/accomodation/acc5_dcmm0m.jpg",
-			"https://res.cloudinary.com/dxz1djlc2/image/upload/v1686396583/accomodation/acc8_btbsaw.jpg",
+			"https://res.cloudinary.com/dxz1djlc2/image/upload/v1686600221/accomodation/newAccomodation/acc8-min_fsklxw.jpg",
+			"https://res.cloudinary.com/dxz1djlc2/image/upload/v1686600287/accomodation/newAccomodation/acc10-min_ntpiqd.jpg",
 		],
 		qty: 1,
 		short_description: "Natures provides it all",
@@ -75,8 +75,8 @@ export const rooms = [
 		id: 4,
 		name: "Ethereal Haven",
 		img: [
-			"https://res.cloudinary.com/dxz1djlc2/image/upload/v1686396426/accomodation/acc1_yiqmwc.jpg",
-			"https://res.cloudinary.com/dxz1djlc2/image/upload/v1686396710/accomodation/acc12_tg3kmh.jpg",
+			"https://res.cloudinary.com/dxz1djlc2/image/upload/v1686600124/accomodation/newAccomodation/acc6-min_qgbyh5.jpg",
+			"https://res.cloudinary.com/dxz1djlc2/image/upload/v1686600252/accomodation/newAccomodation/acc9-min_s885ym.jpg",
 		],
 		qty: 1,
 		short_description: "Beauty that brings peace",

@@ -61,6 +61,7 @@ const Userdetails = (props) => {
 							required
 							type='text'
 							id='firstName'
+							placeholder='John'
 							value={firstName}
 							onChange={handleChange}
 							className='w-full mb-4 bg-transparent border-[1.5px] border-[hsla(0,0%,59%,0.6)] py-3 px-4 focus:ring-0 
@@ -76,6 +77,7 @@ const Userdetails = (props) => {
 							required
 							type='text'
 							id='lastName'
+							placeholder='Doe'
 							value={lastName}
 							onChange={handleChange}
 							className='w-full mb-4 bg-transparent border-[1.5px] border-[hsla(0,0%,59%,0.6)] py-3 px-4 focus:ring-0 

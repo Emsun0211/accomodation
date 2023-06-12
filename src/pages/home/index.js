@@ -5,11 +5,18 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
 import { rooms } from "../../utils/data";
+import Spinner from "../../components/spinner";
 
 function Home() {
+	const [isloading, setIsloading] = useState(true);
 	useEffect(() => {
 		AOS.init({ duration: 2000 });
+		setTimeout(() => setIsloading(false), 5000);
 	}, []);
+
+	if (isloading) {
+		return <Spinner />;
+	}
 
 	return (
 		<div className='  text-center sm:px-[120px] pb-6 pt-[33px] sm:pt-[59px] flex flex-col  items-center justify-center'>
@@ -31,7 +38,7 @@ function Home() {
 			<img
 				alt='alt'
 				src={
-					"https://res.cloudinary.com/dxz1djlc2/image/upload/v1686396549/accomodation/acc6_srzxzv.jpg"
+					"https://res.cloudinary.com/dxz1djlc2/image/upload/v1686600023/accomodation/newAccomodation/acc1-min_mo1d1y.jpg"
 				}
 				width={1000}
 				height={586}
@@ -41,7 +48,7 @@ function Home() {
 			<img
 				alt='alt'
 				src={
-					"https://res.cloudinary.com/dxz1djlc2/image/upload/v1686396549/accomodation/acc6_srzxzv.jpg"
+					"https://res.cloudinary.com/dxz1djlc2/image/upload/v1686600023/accomodation/newAccomodation/acc1-min_mo1d1y.jpg"
 				}
 				width={351}
 				height={380}
