@@ -4,7 +4,6 @@ import {
 	ADDED_TO_CART,
 	INCREASE_QTY,
 	DECREASE_QTY,
-	UPDATE_CART,
 	CART_TOTAL,
 	VAT,
 } from "./CartActionType";
@@ -74,7 +73,7 @@ export const cartReducer = (state, action) => {
 		case VAT:
 			return {
 				...state,
-				vat: cartTotal * 0.001,
+				vat: cartTotal * 0.05,
 			};
 		default:
 			return state;

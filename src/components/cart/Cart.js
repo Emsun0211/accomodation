@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { CartContext } from "../../context/cart/CartContext";
@@ -18,8 +18,7 @@ const Cart = () => {
 		setCartTotal,
 		setVatTotal,
 	} = useContext(CartContext);
-	const [subTotal, setsubTotal] = useState(0);
-	const [checkOpen, setCheckOpen] = useState(false);
+
 	console.log(cart);
 
 	const handleQty = (item, type) => {

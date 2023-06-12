@@ -2,7 +2,6 @@ import { CartContext } from "./CartContext";
 import {
 	ADD_TO_CART,
 	REMOVE_FROM_CART,
-	UPDATE_CART,
 	ADDED_TO_CART,
 	INCREASE_QTY,
 	DECREASE_QTY,
@@ -10,7 +9,7 @@ import {
 	VAT,
 } from "./CartActionType";
 import { cartReducer } from "./CartReducer";
-import { useEffect, useReducer, useState } from "react";
+import { useReducer } from "react";
 
 export const CartState = ({ children }) => {
 	// const [cartItem, setCartItems] = useState(null);

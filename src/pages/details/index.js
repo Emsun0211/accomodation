@@ -1,17 +1,12 @@
 import { useEffect, useState } from "react";
-// import Link from "next/link";
-// import Image from "next/image";
-import Spinner from "../../components/spinner";
 
-// import { useRouter } from "next/router";
 import { useContext } from "react";
 import { CartContext } from "../../context/cart/CartContext";
-// import ProductInfo from "@/components/ProductInfo/ProductInfo";
+
 import Star from "../../components/start";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { rooms } from "../../utils/data";
 import RoomInfo from "./roomInfo";
-// import Cookies from "js-cookie";
 
 const RoomDetails = () => {
 	const { roomid } = useParams();
@@ -19,7 +14,7 @@ const RoomDetails = () => {
 	const navigate = useNavigate();
 
 	const [selectedImg, setSelectedImg] = useState("");
-	const [product, setProduct] = useState(null);
+
 	const [quantity, setQuantity] = useState(1);
 
 	const room = rooms[Number(roomid) - 1];
@@ -40,23 +35,6 @@ const RoomDetails = () => {
 	useEffect(() => {
 		localStorage.setItem("cart", JSON.stringify(cart));
 	}, [cart]);
-
-	// useEffect(() => {
-	// 	const fetchSingleProduct = async () => {
-	// 		setLoading(true);
-	// 		const product = await fetch(
-	// 			`https://jewels-server.onrender.com/api/products/${productId}?populate=*`
-	// 		);
-	// 		const productJson = await product.json();
-	// 		setProduct(productJson.data);
-	// 		setLoading(false);
-	// 	};
-	// 	fetchSingleProduct();
-	// }, [productId]);
-
-	// if (loading) {
-	// 	return <Spinner />;
-	// }
 
 	return (
 		<div className='max-w-[1350px] grid sm:grid-cols-[0.4fr,1.6fr] gap-x-2 items-start sm:mt-0 px-4 mx-auto'>

@@ -3,7 +3,6 @@ import FAQCard from "./faqCard";
 import { cancellationPolicy, faqs } from "../../utils/faq";
 
 const FAQ = () => {
-	const [Open, setopen] = useState(false);
 	const [clicked, setclicked] = useState("0");
 
 	const handleToggle = (index) => {
@@ -13,7 +12,6 @@ const FAQ = () => {
 		}
 		setclicked(index);
 	};
-	const textColor = Open ? "text-[#004DB3]" : "text-black";
 
 	return (
 		<div className='w-[100%]  mx-auto py-[3rem] relative'>

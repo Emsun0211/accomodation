@@ -7,18 +7,9 @@ import { Link } from "react-router-dom";
 import { rooms } from "../../utils/data";
 
 function Home() {
-	const [focus, setIsfocus] = useState(false);
 	useEffect(() => {
 		AOS.init({ duration: 2000 });
 	}, []);
-
-	const handleHoverOn = (id) => {
-		rooms.forEach((room) => {
-			if (room.id === id) {
-				setIsfocus(true);
-			}
-		});
-	};
 
 	return (
 		<div className='  text-center sm:px-[120px] pb-6 pt-[33px] sm:pt-[59px] flex flex-col  items-center justify-center'>

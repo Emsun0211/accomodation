@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import { useNavigate } from "react-router-dom";
+
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
@@ -9,7 +9,6 @@ import "react-datepicker/dist/react-datepicker.css";
 // import { useRouter } from "next/router";
 
 const Userdetails = (props) => {
-	const route = useNavigate();
 	const [formData, setFormData] = useState({
 		firstName: "",
 		lastName: "",
@@ -35,8 +34,7 @@ const Userdetails = (props) => {
 
 	const [value, setValue] = useState();
 
-	const { firstName, lastName, email, phone, homeAddress, state, city } =
-		formData;
+	const { firstName, lastName, email, state } = formData;
 
 	const handleChange = (e) => {
 		// e.preventDefault()

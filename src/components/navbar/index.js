@@ -4,7 +4,7 @@ import { useContext } from "react";
 // import { CartContext } from "@/context/cart/CartContext";
 // import { FavouriteContext } from "@/context/favourite/FavourteContext";
 import { CartContext } from "../../context/cart/CartContext";
-import { AiOutlineHeart } from "react-icons/ai";
+
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 

@@ -19,7 +19,7 @@ const Checkout = () => {
 	useEffect(() => {
 		let total = days > 0 ? (cartTotal - vat) * Math.round(days) : cartTotal;
 		setTotal(total);
-	}, [cartTotal, days]);
+	}, [cartTotal, days, vat]);
 
 	return (
 		<div className='mt-3 px-5 max-w-[1350px] mx-auto'>
