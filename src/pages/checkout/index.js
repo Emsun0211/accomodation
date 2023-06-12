@@ -17,7 +17,7 @@ const Checkout = () => {
 
 	// Perform localStorage action
 	useEffect(() => {
-		let total = days > 0 ? (cartTotal - vat) * Math.round(days) : cartTotal;
+		let total = days > 0 ? (cartTotal + vat) * Math.round(days) : cartTotal;
 		setTotal(total);
 	}, [cartTotal, days, vat]);
 
@@ -96,7 +96,7 @@ const Checkout = () => {
 								Total
 							</h4>
 							<p className='self-end text-xs text-[#000000]/80 tracking-[0.008em]'>
-								{formatter.format(cartTotal - vat)}
+								{formatter.format(cartTotal + vat)}
 								<span className='text-[8px] text-[#000000]/60'>.00</span>
 							</p>
 						</div>

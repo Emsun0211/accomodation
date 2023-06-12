@@ -29,19 +29,10 @@ const Cart = () => {
 		}
 	};
 
-	// useEffect(() => {
-	// 	setsubTotal(
-	// 		cart.reduce((acc, curr) => acc + Number(curr?.price) * curr.qty, 0)
-	// 	);
-	// }, [cart]);
 	useEffect(() => {
 		setCartTotal();
 		setVatTotal();
 	}, [cart]);
-
-	// const vat = cartTotal * 0.05;
-
-	// JSON.stringify(localStorage.setItem("cartTotal", subTotal));
 
 	return (
 		<div className='max-w-4xl  mx-auto px-5 mt-12 sm:mt-24 mb-48 w-full '>
@@ -171,7 +162,7 @@ const Cart = () => {
 								Total
 							</h4>
 							<p className='self-end text-xs text-[#000000]/80 tracking-[0.008em]'>
-								{formatter.format(cartTotal - vat)}
+								{formatter.format(cartTotal + vat)}
 								<span className='text-[8px] text-[#000000]/60'>.00</span>
 							</p>
 						</div>
