@@ -14,15 +14,14 @@ import RoomInfo from "./roomInfo";
 // import Cookies from "js-cookie";
 
 const RoomDetails = () => {
-	// const router = useNavigate();
-	// const { productId } = router.query;
 	const { roomid } = useParams();
 	console.log(roomid);
+	const navigate = useNavigate();
 
-	const [selectedImg, setSelectedImg] = useState("img");
+	const [selectedImg, setSelectedImg] = useState("");
 	const [product, setProduct] = useState(null);
 	const [quantity, setQuantity] = useState(1);
-	// const [loading, setLoading] = useState(true);
+
 	const room = rooms[Number(roomid) - 1];
 	console.log(room);
 	console.log(rooms);
@@ -32,6 +31,11 @@ const RoomDetails = () => {
 
 	const handleAddToCart = (room) => {
 		addToCart(room);
+	};
+
+	const handleBookNow = (room) => {
+		addToCart(room);
+		navigate("/cart");
 	};
 	useEffect(() => {
 		localStorage.setItem("cart", JSON.stringify(cart));
@@ -67,19 +71,39 @@ const RoomDetails = () => {
 						className=''
 					/>
 
-					<h3 className='text-sm font-medium'>Products</h3>
+					<h3 className='text-sm font-medium'>Details</h3>
 				</div>
 
 				<div className='hidden lg:block  mt-8 '>
 					<div>
-						<h3>Necklace</h3>
+						<h2 className='font-bold text-xl'>{room.type}</h2>
 					</div>
 
-					<ul className='text-sm flex justify-start gap-x-3 mt-8'>
-						<li className='cursor-pointer'>All</li>
-						<li className='cursor-pointer'>Female</li>
-						<li className='cursor-pointer'>Male</li>
-					</ul>
+					<div
+						className='
+					 flex   flex-col my-5 gap-y-5'>
+						<div className='bg-[#E9E9E9] cursor-pointer w-[200px] h-[200px] border-[0.77336px] hover:bg-[hsla(255,7%,11%,0.3)] transition ease-in duration-300'>
+							<img
+								alt='item'
+								src={room.img[0]}
+								className='w-[100%] h-[100%] '
+								width={72}
+								height={20}
+								onClick={(e) => setSelectedImg(room.img[0])}
+							/>
+						</div>
+
+						<div className='bg-[#E9E9E9] cursor-pointer w-[200px] h-[200px] border-[0.77336px] hover:bg-[hsla(255,7%,11%,0.3)] transition ease-in duration-300'>
+							<img
+								alt='item'
+								src={room.img[1]}
+								className='w-[100%] h-[100%] mx-auto'
+								width={72}
+								height={20}
+								onClick={(e) => setSelectedImg(room.img[1])}
+							/>
+						</div>
+					</div>
 				</div>
 			</div>
 			{/* middle */}
@@ -89,36 +113,11 @@ const RoomDetails = () => {
 					<div className='relative max-w-[472px] mt-8 sm:mt-0 mx-auto h-[450px] sm:h-[520px] lg:h-[700px] flex items-start sm:items-start justify-center bg-[hsla(0,0%,84%,1)]'>
 						<img
 							alt='item'
-							src={room.img}
+							src={selectedImg !== "" ? selectedImg : room.img[0]}
 							className='w-[100%] h-[100%]'
-							// width={72}
-							// height={20}
+							width={72}
+							height={20}
 						/>
-						{/* <div
-							className='absolute bottom-3 left-auto right-auto
-					 flex items-center space-x-2 '>
-							<div className='bg-[#E9E9E9] cursor-pointer w-[63.42px] h-[59.55px] border-[0.77336px] hover:bg-[hsla(255,7%,11%,0.3)] transition ease-in duration-300'>
-								<img
-									alt='item'
-									src={room.img}
-									className='w-[37.89px] h-[55.68px] mx-auto'
-									width={72}
-									height={20}
-									onClick={(e) => setSelectedImg("img")}
-								/>
-							</div>
-
-							<div className='bg-[#E9E9E9] cursor-pointer w-[63.42px] h-[59.55px] border-[0.77336px] hover:bg-[hsla(255,7%,11%,0.3)] transition ease-in duration-300'>
-								<img
-									alt='item'
-									src={room.img}
-									className='w-[37.89px] h-[55.68px] mx-auto'
-									width={72}
-									height={20}
-									onClick={(e) => setSelectedImg("img2")}
-								/>
-							</div>
-						</div> */}
 					</div>
 
 					{/* quantity */}
@@ -192,7 +191,7 @@ const RoomDetails = () => {
 						)}
 
 						<button
-							onClick={() => handleAddToCart(product)}
+							onClick={() => handleBookNow(room)}
 							className={
 								"text-center mt-8 sm:mt-4 w-full py-3 px-4 bg-[hsla(0,0%,0%,1)]  hover:bg-black/50 text-[hsla(0,0%,100%,1)] text-xs font-semibold"
 							}>

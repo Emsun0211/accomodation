@@ -30,20 +30,20 @@ function NavBar() {
 					<img alt='' src={"/Logo.svg"} width={72} height={20} />
 				</Link>
 				<div className='hidden sm:flex space-x-7 text-[#1c1b1f]/60 text-sm '>
-					<Link href={"/Catalogue/Necklaces/Necklaces"}>
+					<Link to={"/"}>
 						<p className='font-medium'>Home</p>
 					</Link>
-					<Link href={"/"}>
+					<Link to={"/"}>
 						<p className='font-medium'>Services</p>
 					</Link>
-					<Link href={"/"}>
+					<Link to={"/"}>
 						<p className='font-medium'>About</p>
 					</Link>
 
-					<Link href={"/"}>
+					<Link to={"/contact"}>
 						<p className='font-medium'>Contact</p>
 					</Link>
-					<Link href={"/"}>
+					<Link to={"/faq"}>
 						<p className='font-medium'>FAQ</p>
 					</Link>
 				</div>
@@ -101,29 +101,29 @@ function NavBar() {
 						<img alt='' src={"/close.svg"} width={24} height={24} />
 					</div>
 					<div className='space-y-10 flex flex-col justify-start items-start'>
-						<ul className='flex flex-col space-y-2 '>
-							<Link href={"/"}>
+						<ul className='flex flex-col space-y-2 ' onClick={handleNav}>
+							<Link to={"/"}>
 								<li className='text-sm font-medium text-[#FFFFFF]/80 border-b border-b-[#969696]/30 py-4 w-[262px]'>
 									Home{" "}
 								</li>
 							</Link>
-							<Link href={"/Catalogue/Necklaces/Necklaces"}>
+							<Link to={"/"}>
 								<li className='text-sm font-medium text-[#FFFFFF]/80 py-4 w-[262px] border-b border-b-[#969696]/30'>
 									Services
 								</li>
 							</Link>
-							<Link href={"/"}>
+							<Link to={"/"}>
 								<li className='text-sm font-medium text-[#FFFFFF]/80 py-4 w-[262px] border-b border-b-[#969696]/30'>
 									About
 								</li>
 							</Link>
-							<Link href={"/"}>
+							<Link to={"/contact"}>
 								<li className='text-sm font-medium text-[#FFFFFF]/80 py-4 w-[262px] border-b border-b-[#969696]/30'>
 									Contact
 								</li>
 							</Link>
 
-							<Link href={"/"}>
+							<Link to={"/faq"}>
 								<li className='text-sm font-medium text-[#FFFFFF]/80 py-4 w-[262px] border-b border-b-[#969696]/30'>
 									FAQ
 								</li>

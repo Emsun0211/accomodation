@@ -4,6 +4,7 @@ export const rooms = [
 		name: "Radiant Elegance",
 		img: [
 			"https://res.cloudinary.com/dxz1djlc2/image/upload/v1686396443/accomodation/acc2_xnmqgc.jpg",
+			"https://res.cloudinary.com/dxz1djlc2/image/upload/v1686396726/accomodation/acc13_lrefwg.jpg",
 		],
 		qty: 1,
 		short_description: "Elegant Always",
@@ -27,6 +28,7 @@ export const rooms = [
 		name: "Opulent Oasis",
 		img: [
 			"https://res.cloudinary.com/dxz1djlc2/image/upload/v1686396470/accomodation/acc3_alzof4.jpg",
+			"https://res.cloudinary.com/dxz1djlc2/image/upload/v1686396710/accomodation/acc12_tg3kmh.jpg",
 		],
 		qty: 1,
 		short_description: "Live in Comfort",
@@ -50,6 +52,7 @@ export const rooms = [
 		name: "Tranquil Escapes",
 		img: [
 			"https://res.cloudinary.com/dxz1djlc2/image/upload/v1686396525/accomodation/acc5_dcmm0m.jpg",
+			"https://res.cloudinary.com/dxz1djlc2/image/upload/v1686396583/accomodation/acc8_btbsaw.jpg",
 		],
 		qty: 1,
 		short_description: "Natures provides it all",
@@ -73,6 +76,7 @@ export const rooms = [
 		name: "Ethereal Haven",
 		img: [
 			"https://res.cloudinary.com/dxz1djlc2/image/upload/v1686396426/accomodation/acc1_yiqmwc.jpg",
+			"https://res.cloudinary.com/dxz1djlc2/image/upload/v1686396710/accomodation/acc12_tg3kmh.jpg",
 		],
 		qty: 1,
 		short_description: "Beauty that brings peace",

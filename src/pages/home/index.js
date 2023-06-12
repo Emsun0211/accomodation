@@ -69,10 +69,7 @@ function Home() {
 						<div className='flex flex-col items-center justify-center space-y-6 relative group '>
 							<img
 								alt='alt'
-								src={
-									// "https://res.cloudinary.com/dxz1djlc2/image/upload/v1686396426/accomodation/acc1_yiqmwc.jpg"
-									room.img
-								}
+								src={room.img[0]}
 								width={165}
 								height={180}
 								className='sm:w-auto     sm:h-[295px] '

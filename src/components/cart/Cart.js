@@ -71,7 +71,7 @@ const Cart = () => {
 								<div className='w-[200px] h-[200px] bg-[#D5D5D5]'>
 									<img
 										alt='product '
-										src={item?.img}
+										src={item?.img[0]}
 										width={72}
 										height={20}
 										className='w-full h-full  mx-auto'
@@ -82,7 +82,7 @@ const Cart = () => {
 								<div className='-start'>
 									<h3 className=''>{item?.name}</h3>
 									<p className=' pr-3 text-xs tracking-[0.08em] text-[hsla(0,0%,59%,1)]'>
-										{item?.attributes?.desc}
+										{item?.type}
 									</p>
 									<p className='mt-1 text-sm text-[#000000]/80 tracking-[0.008em]'>
 										{formatter.format(item?.price)}
