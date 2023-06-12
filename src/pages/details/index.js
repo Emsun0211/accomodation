@@ -125,7 +125,7 @@ const RoomDetails = () => {
 
 						<p className='mt-3 text-xl text-[#000000]/80 tracking-[0.008em]'>
 							${room.price}
-							<span className='text-sm text-[#000000]/60'>.00</span>
+							<span className='text-sm text-[#000000]/60'>.00/night</span>
 						</p>
 
 						<div className='w-full h-[1px] mt-6 sm:mt-2 bg-[hsla(0,0%,59%,0.3)]'></div>

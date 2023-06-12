@@ -70,7 +70,7 @@ function Home() {
 								src={room.img[0]}
 								width={165}
 								height={180}
-								className='sm:w-auto     sm:h-[295px] '
+								className='sm:w-auto   sm:h-[295px] '
 							/>
 							<div>
 								<p className='font-medium text-sm  text-[#000000]/80 mb-2'>

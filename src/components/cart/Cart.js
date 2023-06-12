@@ -80,7 +80,7 @@ const Cart = () => {
 										{`${item?.type} Room`}
 									</p>
 									<p className='mt-1 text-sm text-[#000000]/80 tracking-[0.008em]'>
-										{formatter.format(item?.price)}
+										{formatter.format(item?.price)}/night
 										{/* <span className='text-xs text-[#000000]/60'>.00</span> */}
 									</p>
 
