@@ -77,9 +77,16 @@ function Home() {
 								height={180}
 								className='sm:w-auto     sm:h-[295px] '
 							/>
-							<p className='font-medium text-sm  text-[#000000]/80 '>
-								{room.name}
-							</p>
+							<div>
+								<p className='font-medium text-sm  text-[#000000]/80 mb-2'>
+									{room.name}
+								</p>
+								<Link to={`/details/${room.id}`} className='block sm:hidden'>
+									<p className='font-medium py-2 px-[46px]  bg-black hover:bg-black/60 text-white'>
+										Details
+									</p>
+								</Link>
+							</div>
 							<div
 								className={`absolute sm:top-[-7%] top-[-15%] right-0 left-0 sm:h-[87%] h-[70%] w-[100%] bg-black/50 z-20 
 									
@@ -131,7 +138,7 @@ function Home() {
 				<div
 					data-aos='fade-left'
 					className='sm:w-1/2 sm:text-left flex flex-col space-y-4 pl-5 pr-[21px] sm:space-y-[29px] '>
-					<h1 className='font-south  text-[24px] sm:leading-[62px]   sm:text-[57px] text-left sm:text-left '>
+					<h1 className='font-south  text-[22px] sm:leading-[62px]   sm:text-[57px] text-left sm:text-left '>
 						Priceless peace you can ever find
 					</h1>
 					<p className=' text-sm sm:text-2xl text-[#000000]/50 sm:text-left text-left max-w-[349px] sm:max-w-[560px] '>

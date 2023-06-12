@@ -130,27 +130,29 @@ const Checkout = () => {
 			</div> */}
 
 			{checkOutOpen && (
-				<div className='fixed top-0 right-0 left-0  h-full w-full z-40'>
-					{/* <div>Go back to product page</div> */}
-					<div className='flex justify-center flex-col w-[100%] mx-auto h-full items-center gap-[2rem] bg-white/90 px-4 text-center'>
-						<img src={"/Logo.svg"} width='200' height='200' alt='logo' />
-						<h3>Thank you for your patience, your order has been recieved</h3>
-						<p>
-							Kindly note that the total amount to be paid for{" "}
-							{`${days > 0 ? Math.round(days) : 1}`} day(s) is{" "}
-							{`${formatter.format(total)} `}
-						</p>
-						<p>
-							You are advised to pay at least 10% of this amount in order to
-							make your reservation
-						</p>
-						<Link to={"/"}>
-							<button className='text-center mt-4 w-full py-3 px-4 bg-[hsla(0,0%,0%,1)] text-[hsla(0,0%,100%,1)] text-xs font-medium'>
-								Go Back Home
-							</button>
-						</Link>
+				<Link to={"/"}>
+					<div className='fixed top-0 right-0 left-0  h-full w-full z-40'>
+						{/* <div>Go back to product page</div> */}
+						<div className='flex justify-center flex-col w-[100%] mx-auto h-full items-center gap-[1rem] bg-white px-4 text-center '>
+							<img src={"/Logo.svg"} width='200' height='200' alt='logo' />
+							<h3>Thank you for your patience, your order has been recieved</h3>
+							<p>
+								Kindly note that the total amount to be paid for{" "}
+								{`${days > 0 ? Math.round(days) : 1}`} day(s) is{" "}
+								{`${formatter.format(total)} `}
+							</p>
+							<p>
+								You are advised to pay at least 10% of this amount in order to
+								make your reservation
+							</p>
+							<Link to={"/"}>
+								<button className='text-center mt-4 w-full py-3 px-4 bg-[hsla(0,0%,0%,1)] text-[hsla(0,0%,100%,1)] text-xs font-medium'>
+									Go Back Home
+								</button>
+							</Link>
+						</div>
 					</div>
-				</div>
+				</Link>
 			)}
 		</div>
 	);
