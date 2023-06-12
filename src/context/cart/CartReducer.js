@@ -6,6 +6,7 @@ import {
 	DECREASE_QTY,
 	UPDATE_CART,
 	CART_TOTAL,
+	VAT,
 } from "./CartActionType";
 
 export const cartReducer = (state, action) => {
@@ -69,6 +70,11 @@ export const cartReducer = (state, action) => {
 					(acc, curr) => acc + Number(curr?.price) * curr.qty,
 					0
 				),
+			};
+		case VAT:
+			return {
+				...state,
+				vat: cartTotal * 0.001,
 			};
 		default:
 			return state;

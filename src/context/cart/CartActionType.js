@@ -5,3 +5,4 @@ export const ADDED_TO_CART = "ADDED_TO_CART";
 export const INCREASE_QTY = "INCREASE_QTY";
 export const DECREASE_QTY = "DECREASE_QTY";
 export const CART_TOTAL = "CART_TOTAL";
+export const VAT = "VAT";

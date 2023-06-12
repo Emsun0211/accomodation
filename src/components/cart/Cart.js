@@ -14,7 +14,9 @@ const Cart = () => {
 		increaseQty,
 		decreaseQty,
 		cartTotal,
+		vat,
 		setCartTotal,
+		setVatTotal,
 	} = useContext(CartContext);
 	const [subTotal, setsubTotal] = useState(0);
 	const [checkOpen, setCheckOpen] = useState(false);
@@ -35,9 +37,10 @@ const Cart = () => {
 	// }, [cart]);
 	useEffect(() => {
 		setCartTotal();
+		setVatTotal();
 	}, [cart]);
 
-	console.log(cartTotal);
+	// const vat = cartTotal * 0.05;
 
 	// JSON.stringify(localStorage.setItem("cartTotal", subTotal));
 
@@ -45,17 +48,19 @@ const Cart = () => {
 		<div className='max-w-4xl  mx-auto px-5 mt-12 sm:mt-24 mb-48 w-full '>
 			<div>
 				{/* title */}
-				<div className='flex items-center gap-x-1 cursor-pointer'>
-					<img
-						alt=''
-						src={"/arrow_back.svg"}
-						width={22}
-						height={20}
-						className=''
-					/>
+				<Link to={"/"}>
+					<div className='flex items-center gap-x-1 cursor-pointer'>
+						<img
+							alt=''
+							src={"/arrow_back.svg"}
+							width={22}
+							height={20}
+							className=''
+						/>
 
-					<h3 className='text-sm font-medium'>Shopping bag</h3>
-				</div>
+						<h3 className='text-sm font-medium'>Details</h3>
+					</div>
+				</Link>
 
 				{/* cart items */}
 				<div className='mt-7'>
@@ -81,8 +86,8 @@ const Cart = () => {
 								{/* item details */}
 								<div className='-start'>
 									<h3 className=''>{item?.name}</h3>
-									<p className=' pr-3 text-xs tracking-[0.08em] text-[hsla(0,0%,59%,1)]'>
-										{item?.type}
+									<p className=' pr-3 text-lg tracking-[0.08em] text-[hsla(0,0%,59%,1)]'>
+										{`${item?.type} Room`}
 									</p>
 									<p className='mt-1 text-sm text-[#000000]/80 tracking-[0.008em]'>
 										{formatter.format(item?.price)}
@@ -134,7 +139,7 @@ const Cart = () => {
 							let price = item.qty * item?.price;
 							return (
 								<div className='mt-4 flex justify-between' key={item.id}>
-									<div className='text-[hsla(0,0%,59%,1)] text-xs tracking-[0.008em]'>
+									<div className='text-[hsla(0,0%,59%,1)] text-sm tracking-[0.008em]'>
 										<h4 className='pb-1'>{item?.name}</h4>
 										{/* <p>{item?.short_description}</p> */}
 									</div>
@@ -150,19 +155,10 @@ const Cart = () => {
 						<div>
 							<div className='mt-4 flex justify-between'>
 								<h4 className='text-[hsla(0,0%,59%,1)] text-xs tracking-[0.008em]'>
-									Shipping
-								</h4>
-								<p className='self-end text-xs text-[#000000]/80 tracking-[0.008em]'>
-									$0
-									<span className='text-[8px] text-[#000000]/60'>.00</span>
-								</p>
-							</div>
-							<div className='mt-4 flex justify-between'>
-								<h4 className='text-[hsla(0,0%,59%,1)] text-xs tracking-[0.008em]'>
 									VAT
 								</h4>
 								<p className='self-end text-xs text-[#000000]/80 tracking-[0.008em]'>
-									$0
+									{formatter.format(vat)}
 									<span className='text-[8px] text-[#000000]/60'>.00</span>
 								</p>
 							</div>
@@ -176,7 +172,7 @@ const Cart = () => {
 								Total
 							</h4>
 							<p className='self-end text-xs text-[#000000]/80 tracking-[0.008em]'>
-								{formatter.format(cartTotal)}
+								{formatter.format(cartTotal - vat)}
 								<span className='text-[8px] text-[#000000]/60'>.00</span>
 							</p>
 						</div>
@@ -196,13 +192,6 @@ const Cart = () => {
 						{/* shipment */}
 						<div className='mt-8 flex flex-col gap-y-3'>
 							<div className='flex items-start gap-x-2'>
-								<img
-									alt=''
-									src={"/local_shipping.svg"}
-									width={22}
-									height={20}
-									className='mt-1 h-6'
-								/>
 								<div>
 									<h4 className='text-sm tracking-[0.007em] text-[#000000]'>
 										Note:
@@ -214,13 +203,6 @@ const Cart = () => {
 							</div>
 
 							<div className='flex items-start gap-x-2'>
-								<img
-									alt=''
-									src={"/verified_user.svg"}
-									width={18}
-									height={20}
-									className='mt-1 h-6'
-								/>
 								<div>
 									<h4 className='text-sm tracking-[0.007em] text-[#000000]'>
 										100% secured
@@ -232,13 +214,6 @@ const Cart = () => {
 							</div>
 
 							<div className='flex items-start gap-x-2'>
-								<img
-									alt=''
-									src={"/military_tech.svg"}
-									width={18}
-									height={10}
-									className='mt-1 h-6'
-								/>
 								<div>
 									<h4 className='text-sm tracking-[0.007em] text-[#000000]'>
 										Top rated on trustpilot
@@ -250,13 +225,6 @@ const Cart = () => {
 							</div>
 
 							<div className='flex items-start gap-x-2'>
-								<img
-									alt=''
-									src={"/support_agent.svg"}
-									width={18}
-									height={12}
-									className='mt-1 h-6'
-								/>
 								<div>
 									<h4 className='text-sm tracking-[0.007em] text-[#000000]'>
 										Contact us

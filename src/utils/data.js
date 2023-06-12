@@ -20,7 +20,7 @@ export const rooms = [
 			"Room Amenities",
 			"Entertainment Services",
 		],
-		price: 120000,
+		price: 200,
 		type: "Standard",
 	},
 	{
@@ -44,7 +44,7 @@ export const rooms = [
 			"Room Amenities",
 			"Entertainment Services",
 		],
-		price: 120000,
+		price: 250,
 		type: "Executive",
 	},
 	{
@@ -68,7 +68,7 @@ export const rooms = [
 			"Room Amenities",
 			"Entertainment Services",
 		],
-		price: 120000,
+		price: 300,
 		type: "Suite",
 	},
 	{
@@ -92,7 +92,7 @@ export const rooms = [
 			"Room Amenities",
 			"Entertainment Services",
 		],
-		price: 120000,
+		price: 500,
 		type: "Deluxe",
 	},
 ];

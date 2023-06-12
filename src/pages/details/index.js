@@ -8,7 +8,7 @@ import { useContext } from "react";
 import { CartContext } from "../../context/cart/CartContext";
 // import ProductInfo from "@/components/ProductInfo/ProductInfo";
 import Star from "../../components/start";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { rooms } from "../../utils/data";
 import RoomInfo from "./roomInfo";
 // import Cookies from "js-cookie";
@@ -63,15 +63,17 @@ const RoomDetails = () => {
 			{/* left hand side */}
 			<div className='mt-8'>
 				<div className='flex items-center gap-x-1 cursor-pointer mt-8'>
-					<img
-						alt=''
-						src={"/arrow_back.svg"}
-						width={22}
-						height={20}
-						className=''
-					/>
+					<Link to={"/"}>
+						<img
+							alt=''
+							src={"/arrow_back.svg"}
+							width={22}
+							height={20}
+							className=''
+						/>
+					</Link>
 
-					<h3 className='text-sm font-medium'>Details</h3>
+					<h3 className='text-sm font-medium'>Home</h3>
 				</div>
 
 				<div className='hidden lg:block  mt-8 '>

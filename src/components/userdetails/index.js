@@ -148,8 +148,8 @@ const Userdetails = (props) => {
 				</p>
 				<input
 					required
-					type='text'
-					placeholder='Please select'
+					type='number'
+					placeholder='1'
 					id='state'
 					value={state}
 					onChange={handleChange}

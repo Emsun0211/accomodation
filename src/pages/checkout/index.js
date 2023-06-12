@@ -7,7 +7,7 @@ import Userdetails from "../../components/userdetails";
 import { CartContext } from "../../context/cart/CartContext";
 
 const Checkout = () => {
-	const { cart, cartTotal } = useContext(CartContext);
+	const { cart, cartTotal, vat } = useContext(CartContext);
 
 	const [startDate, setStartDate] = useState(new Date());
 	const [endDate, setEndDate] = useState(new Date());
@@ -17,7 +17,7 @@ const Checkout = () => {
 
 	// Perform localStorage action
 	useEffect(() => {
-		let total = days > 0 ? cartTotal * Math.round(days) : cartTotal;
+		let total = days > 0 ? (cartTotal - vat) * Math.round(days) : cartTotal;
 		setTotal(total);
 	}, [cartTotal, days]);
 
@@ -25,7 +25,7 @@ const Checkout = () => {
 		<div className='mt-3 px-5 max-w-[1350px] mx-auto'>
 			<div>
 				<Link
-					href={"cart"}
+					to={"/cart"}
 					className='flex items-center gap-x-1 cursor-pointer w-[76.85px] md:w-[120px]  h-[71px] md:h-[100px]'>
 					<img
 						alt='arrow-back'
@@ -55,7 +55,7 @@ const Checkout = () => {
 									<div className='w-[100px] h-[100px] bg-[#D5D5D5]'>
 										<img
 											alt=''
-											src={item?.img}
+											src={item?.img[0]}
 											width={72}
 											height={20}
 											className='w-full h-full  mx-auto'
@@ -82,7 +82,7 @@ const Checkout = () => {
 									VAT
 								</h4>
 								<p className='self-end text-xs text-[#000000]/80 tracking-[0.008em]'>
-									$0
+									{formatter.format(vat)}
 									<span className='text-[8px] text-[#000000]/60'>.00</span>
 								</p>
 							</div>
@@ -96,7 +96,7 @@ const Checkout = () => {
 								Total
 							</h4>
 							<p className='self-end text-xs text-[#000000]/80 tracking-[0.008em]'>
-								{formatter.format(cartTotal)}
+								{formatter.format(cartTotal - vat)}
 								<span className='text-[8px] text-[#000000]/60'>.00</span>
 							</p>
 						</div>

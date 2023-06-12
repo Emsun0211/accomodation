@@ -7,6 +7,7 @@ import {
 	INCREASE_QTY,
 	DECREASE_QTY,
 	CART_TOTAL,
+	VAT,
 } from "./CartActionType";
 import { cartReducer } from "./CartReducer";
 import { useEffect, useReducer, useState } from "react";
@@ -16,6 +17,7 @@ export const CartState = ({ children }) => {
 	const initialState = {
 		cart: [],
 		cartTotal: 0,
+		vat: 0,
 		isCompleted: false,
 		isaddedToCart: false,
 	};
@@ -42,6 +44,9 @@ export const CartState = ({ children }) => {
 	const setCartTotal = () => {
 		dispatch({ type: CART_TOTAL });
 	};
+	const setVatTotal = () => {
+		dispatch({ type: VAT });
+	};
 
 	return (
 		<CartContext.Provider
@@ -56,6 +61,8 @@ export const CartState = ({ children }) => {
 				increaseQty,
 				decreaseQty,
 				setCartTotal,
+				setVatTotal,
+				vat: state.vat,
 				...state,
 			}}>
 			{children}
