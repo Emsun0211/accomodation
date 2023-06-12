@@ -131,10 +131,12 @@ function NavBar() {
 						</ul>
 						<div className='space-x-2 sm:hidden flex text-white text-sm justify-center items-center'>
 							<Link href={"/login"}>
-								<p className='font-medium py-2 px-[46px]  bg-black'>Login</p>
+								<p className='font-medium py-2 px-[46px]  bg-black hover:bg-black/60'>
+									Login
+								</p>
 							</Link>
 							<Link href={"/sign-up"}>
-								<p className='font-medium py-2 px-[39px] border border-black'>
+								<p className='font-medium py-2 px-[39px] border border-black '>
 									Sign up
 								</p>
 							</Link>
