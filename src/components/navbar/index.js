@@ -24,7 +24,7 @@ function NavBar() {
 	// const favourite = useContext(FavouriteContext).favourite;
 
 	return (
-		<div className=' sticky top-0 z-40 bg-[#F4F1D6] border-b border-b-[#969696]  '>
+		<div className=' sticky top-0 z-40 bg-[#F4F1D6] border-b border-b-[#969696] w-full overflow-x-hidden '>
 			<div className=' container flex justify-between items-center  px-5 py-3 mx-auto'>
 				<Link to={"/"}>
 					<img alt='' src={"/Logo.svg"} width={72} height={20} />

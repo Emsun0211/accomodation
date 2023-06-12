@@ -3,7 +3,7 @@ import React from "react";
 
 function Footer() {
 	return (
-		<div className='mt-20 sm:mt-24 bg-black     '>
+		<div className='mt-20 sm:mt-24 bg-black overflow-x-hidden    '>
 			<div className='flex flex-col text-[#FFFFFF]/60  items-start px-5 py-6 sm:px-[120px] sm:py-[52px] space-y-2 sm:space-y-6  '>
 				<img
 					src={"/Jewels.svg"}
