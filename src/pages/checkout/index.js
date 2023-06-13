@@ -7,7 +7,13 @@ import Userdetails from "../../components/userdetails";
 import { CartContext } from "../../context/cart/CartContext";
 
 const Checkout = () => {
-	const { cart, cartTotal, vat } = useContext(CartContext);
+	const {
+		cart,
+		cartTotal,
+		vat,
+
+		numberOfDays,
+	} = useContext(CartContext);
 
 	const [startDate, setStartDate] = useState(new Date());
 	const [endDate, setEndDate] = useState(new Date());
@@ -20,6 +26,8 @@ const Checkout = () => {
 		let total = days > 0 ? (cartTotal + vat) * Math.round(days) : cartTotal;
 		setTotal(total);
 	}, [cartTotal, days, vat]);
+	const vatReduction = cartTotal * 0.05;
+	console.log(vatReduction);
 
 	return (
 		<div className='mt-3 px-5 max-w-[1350px] mx-auto'>
@@ -47,7 +55,8 @@ const Checkout = () => {
 						</h3>
 
 						{cart.map((item, idx) => {
-							let price = item.qty * item?.price;
+							let price = item.qty * item?.price * numberOfDays;
+
 							return (
 								<div
 									key={idx}
@@ -81,7 +90,7 @@ const Checkout = () => {
 									VAT
 								</h4>
 								<p className='self-end text-xs text-[#000000]/80 tracking-[0.008em]'>
-									{formatter.format(vat)}
+									{formatter.format(cartTotal * numberOfDays * 0.05)}
 									<span className='text-[8px] text-[#000000]/60'>.00</span>
 								</p>
 							</div>
@@ -95,7 +104,7 @@ const Checkout = () => {
 								Total
 							</h4>
 							<p className='self-end text-xs text-[#000000]/80 tracking-[0.008em]'>
-								{formatter.format(cartTotal + vat)}
+								{formatter.format(cartTotal + vatReduction)}
 								<span className='text-[8px] text-[#000000]/60'>.00</span>
 							</p>
 						</div>
@@ -138,7 +147,7 @@ const Checkout = () => {
 							<p>
 								Kindly note that the total amount to be paid for{" "}
 								{`${days > 0 ? Math.round(days) : 1}`} day(s) is{" "}
-								{`${formatter.format(total)} `}
+								{`${formatter.format(cartTotal + vatReduction)} `}
 							</p>
 							<p>
 								You are advised to pay at least 10% of this amount in order to

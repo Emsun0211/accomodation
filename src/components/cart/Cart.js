@@ -15,17 +15,28 @@ const Cart = () => {
 		decreaseQty,
 		cartTotal,
 		vat,
+		numberOfDays,
+		numberOfRooms,
 		setCartTotal,
 		setVatTotal,
+
+		addNumberOfRooms,
+
+		removeNumberOfRooms,
 	} = useContext(CartContext);
+
+	console.log(numberOfDays, numberOfRooms);
 
 	console.log(cart);
 
 	const handleQty = (item, type) => {
+		console.log(item.qty);
 		if (type === "INCREASE") {
 			increaseQty(item);
+			addNumberOfRooms();
 		} else if (type === "DECREASE") {
 			decreaseQty(item);
+			removeNumberOfRooms();
 		}
 	};
 
@@ -80,7 +91,10 @@ const Cart = () => {
 										{`${item?.type} Room`}
 									</p>
 									<p className='mt-1 text-sm text-[#000000]/80 tracking-[0.008em]'>
-										{formatter.format(item?.price)}/night
+										{formatter.format(item?.price * numberOfDays * item.qty)}
+										<span className='text-[12px] text-[#000000]/60'>
+											/{numberOfDays} day(s)
+										</span>
 										{/* <span className='text-xs text-[#000000]/60'>.00</span> */}
 									</p>
 
@@ -126,7 +140,7 @@ const Cart = () => {
 						</h3>
 
 						{cart.map((item) => {
-							let price = item.qty * item?.price;
+							let price = item.qty * item?.price * numberOfDays;
 							return (
 								<div className='mt-4 flex justify-between' key={item.id}>
 									<div className='text-[hsla(0,0%,59%,1)] text-sm tracking-[0.008em]'>

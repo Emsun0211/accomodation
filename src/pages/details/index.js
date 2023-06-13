@@ -7,6 +7,9 @@ import Star from "../../components/start";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { rooms } from "../../utils/data";
 import RoomInfo from "./roomInfo";
+// import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
+import Calender from "../../components/calender";
 
 const RoomDetails = () => {
 	const { roomid } = useParams();
@@ -14,27 +17,26 @@ const RoomDetails = () => {
 	const navigate = useNavigate();
 
 	const [selectedImg, setSelectedImg] = useState("");
-
-	const [quantity, setQuantity] = useState(1);
+	const [isCalendar, setCalendar] = useState(false);
 
 	const room = rooms[Number(roomid) - 1];
-	console.log(room);
-	console.log(rooms);
 
 	// cart Functionality starts here
-	const { addToCart, cart } = useContext(CartContext);
+	const {
+		addToCart,
+		cart,
 
-	const handleAddToCart = (room) => {
-		addToCart(room);
-	};
+		numberOfDays,
+	} = useContext(CartContext);
+
+	// const handleAddToCart = (room) => {
+	// 	addToCart(room);
+	// };
 
 	const handleBookNow = (room) => {
 		addToCart(room);
 		navigate("/cart");
 	};
-	useEffect(() => {
-		localStorage.setItem("cart", JSON.stringify(cart));
-	}, [cart]);
 
 	return (
 		<div className='max-w-[1350px] grid sm:grid-cols-[0.4fr,1.6fr] gap-x-2 items-start sm:mt-0 px-4 mx-auto'>
@@ -104,7 +106,7 @@ const RoomDetails = () => {
 				</div>
 
 				{/* right hand side */}
-				<div className=''>
+				<div className='relative'>
 					{/* product details */}
 
 					<div className='mt-6 lg:mt-24'>
@@ -124,59 +126,75 @@ const RoomDetails = () => {
 						</div>
 
 						<p className='mt-3 text-xl text-[#000000]/80 tracking-[0.008em]'>
-							${room.price}
-							<span className='text-sm text-[#000000]/60'>.00/night</span>
+							${room.price * numberOfDays}
+							<span className='text-sm text-[#000000]/60'>.00</span>
+						</p>
+						<p className='mt-3 text-xl text-[#000000]/80 tracking-[0.008em]'>
+							${` For ${numberOfDays} day(s)`}
 						</p>
 
 						<div className='w-full h-[1px] mt-6 sm:mt-2 bg-[hsla(0,0%,59%,0.3)]'></div>
 					</div>
 
 					<div className='my-4 sm:my-2'>
-						<h4>Quantity:</h4>
+						<h4>Days:</h4>
 						<div
 							className='flex justify-center gap-x-4 mt-1 border-[1.5px] max-w-[80px] w-full border-[hsla(0,0%,59%,0.6)]
 							 py-1 px-1'>
-							<button
+							{/* <button
 								onClick={() =>
 									setQuantity((prev) => (prev === 1 ? 1 : prev - 1))
 								}>
 								-
-							</button>
+							</button> */}
 
-							{quantity}
+							{numberOfDays === isNaN() ? 1 : numberOfDays}
 
-							<button onClick={() => setQuantity((prev) => prev + 1)}>+</button>
+							{/* <button onClick={() => setQuantity((prev) => prev + 1)}>+</button> */}
 						</div>
 					</div>
 
 					<div className='w-full h-[1px] mt-6 sm:mt-2 bg-[hsla(0,0%,59%,0.3)]'></div>
-					<div className='flex items-center space-x-5'>
-						{cart.find((item) => item.id === room.id) ? (
-							<button
-								disabled
-								onClick={() => handleAddToCart(room)}
-								className={
-									"text-center mt-8 sm:mt-4 w-full py-3 px-4 bg-slate-400 text-[hsla(0,0%,100%,1)] text-xs font-semibold"
-								}>
-								Add to bag
-							</button>
-						) : (
-							<button
-								onClick={() => handleAddToCart(room)}
-								className={
-									"text-center mt-8 sm:mt-4 w-full py-3 px-4 hover:bg-black/50 bg-[hsla(0,0%,0%,1)] text-[hsla(0,0%,100%,1)] text-xs font-semibold"
-								}>
-								Add to bag
-							</button>
-						)}
 
+					{isCalendar && (
+						<div className='absolute top-0 right-0 left-0'>
+							<Calender setCalendar={() => setCalendar(false)} />
+						</div>
+					)}
+					<div className='flex items-center space-x-5'>
 						<button
+							onClick={() => setCalendar(!isCalendar)}
+							className={
+								"text-center mt-8 sm:mt-4 w-full py-3 px-4 bg-[hsla(0,0%,0%,1)] text-[hsla(0,0%,100%,1)] text-xs font-semibold"
+							}>
+							Choose Date
+						</button>
+
+						{/* <button
 							onClick={() => handleBookNow(room)}
 							className={
 								"text-center mt-8 sm:mt-4 w-full py-3 px-4 bg-[hsla(0,0%,0%,1)]  hover:bg-black/50 text-[hsla(0,0%,100%,1)] text-xs font-semibold"
 							}>
 							Book Now
-						</button>
+						</button> */}
+						{cart.find((item) => item.id === room.id) ? (
+							<button
+								disabled
+								onClick={() => handleBookNow(room)}
+								className={
+									"text-center mt-8 sm:mt-4 w-full py-3 px-4 bg-slate-400 text-[hsla(0,0%,100%,1)] text-xs font-semibold"
+								}>
+								Book Now
+							</button>
+						) : (
+							<button
+								onClick={() => handleBookNow(room)}
+								className={
+									"text-center mt-8 sm:mt-4 w-full py-3 px-4 hover:bg-black/50 bg-[hsla(0,0%,0%,1)] text-[hsla(0,0%,100%,1)] text-xs font-semibold"
+								}>
+								Book Now
+							</button>
+						)}
 					</div>
 					<p className='text-sm lg:text-sm mt-6 sm:mt-3 text-[#969696] tracking-[0.007em]'>
 						{room.description}

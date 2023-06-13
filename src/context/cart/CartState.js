@@ -7,6 +7,12 @@ import {
 	DECREASE_QTY,
 	CART_TOTAL,
 	VAT,
+	NUMBER_OF_DAYS,
+	NUMBER_OF_ROOMS,
+	ADD_NUMBER_OF_DAYS,
+	REMOVE_NUMBER_OF_DAYS,
+	ADD_NUMBER_OF_ROOMS,
+	REMOVE_NUMBER_OF_ROOMS,
 } from "./CartActionType";
 import { cartReducer } from "./CartReducer";
 import { useReducer } from "react";
@@ -17,10 +23,14 @@ export const CartState = ({ children }) => {
 		cart: [],
 		cartTotal: 0,
 		vat: 0,
+		numberOfDays: 1,
+		numberOfRooms: 1,
 		isCompleted: false,
 		isaddedToCart: false,
 	};
+
 	const [state, dispatch] = useReducer(cartReducer, initialState);
+	console.log(state.numberOfDays);
 
 	const addToCart = (cartObj) => {
 		dispatch({ type: ADD_TO_CART, payload: cartObj });
@@ -46,6 +56,18 @@ export const CartState = ({ children }) => {
 	const setVatTotal = () => {
 		dispatch({ type: VAT });
 	};
+	const addNumberOfDays = (days) => {
+		dispatch({ type: ADD_NUMBER_OF_DAYS, payload: days });
+	};
+	const removeNumberOfDays = () => {
+		dispatch({ type: REMOVE_NUMBER_OF_DAYS });
+	};
+	const addNumberOfRooms = () => {
+		dispatch({ type: ADD_NUMBER_OF_ROOMS });
+	};
+	const removeNumberOfRooms = () => {
+		dispatch({ type: REMOVE_NUMBER_OF_ROOMS });
+	};
 
 	return (
 		<CartContext.Provider
@@ -62,6 +84,12 @@ export const CartState = ({ children }) => {
 				setCartTotal,
 				setVatTotal,
 				vat: state.vat,
+				numberOfDays: state.numberOfDays,
+				numberOfRooms: state.numberOfRooms,
+				addNumberOfDays,
+				removeNumberOfDays,
+				addNumberOfRooms,
+				removeNumberOfRooms,
 				...state,
 			}}>
 			{children}

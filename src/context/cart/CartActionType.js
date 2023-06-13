@@ -6,3 +6,7 @@ export const INCREASE_QTY = "INCREASE_QTY";
 export const DECREASE_QTY = "DECREASE_QTY";
 export const CART_TOTAL = "CART_TOTAL";
 export const VAT = "VAT";
+export const ADD_NUMBER_OF_DAYS = "ADD_NUMBER_OF_DAYS";
+export const REMOVE_NUMBER_OF_DAYS = "REMOVE_NUMBER_OF_DAYS";
+export const REMOVE_NUMBER_OF_ROOMS = "REMOVE_NUMBER_OF_ROOMS";
+export const ADD_NUMBER_OF_ROOMS = "ADD_NUMBER_OF_ROOMS";

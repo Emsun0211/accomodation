@@ -118,31 +118,6 @@ const Userdetails = (props) => {
 					/>
 				</div>
 
-				<div className='flex justify-between items-center space-x-5'>
-					<div>
-						<p className='text-xs md:text-sm font-medium text-[hsla(0,0%,59%,1)] mb-2'>
-							Start Date
-						</p>
-						<DatePicker
-							selected={startDate}
-							onChange={(date) => setStartDate(date)}
-							className='w-full mb-4 bg-transparent border-[1.5px] border-[hsla(0,0%,59%,0.6)] py-3 px-4 focus:ring-0 
-                        focus:border-[hsla(0,0%,59%,0.6)] focus:bg-transparent  text-sm text-[hsla(0,0%,0%,1)] sm:text-lg'
-						/>
-					</div>
-					<div>
-						<p className='text-xs md:text-sm font-medium text-[hsla(0,0%,59%,1)] mb-2'>
-							End Date
-						</p>
-						<DatePicker
-							selected={endDate}
-							onChange={(date) => setEndDate(date)}
-							className='w-full mb-4 bg-transparent border-[1.5px] border-[hsla(0,0%,59%,0.6)] py-3 px-4 focus:ring-0 
-                        focus:border-[hsla(0,0%,59%,0.6)] focus:bg-transparent  text-sm text-[hsla(0,0%,0%,1)] sm:text-lg'
-						/>
-					</div>
-				</div>
-
 				<p className='text-xs md:text-sm font-medium text-[hsla(0,0%,59%,1)] mb-2'>
 					Number of Guests
 				</p>

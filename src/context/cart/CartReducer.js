@@ -6,10 +6,14 @@ import {
 	DECREASE_QTY,
 	CART_TOTAL,
 	VAT,
+	ADD_NUMBER_OF_DAYS,
+	REMOVE_NUMBER_OF_DAYS,
+	REMOVE_NUMBER_OF_ROOMS,
+	ADD_NUMBER_OF_ROOMS,
 } from "./CartActionType";
 
 export const cartReducer = (state, action) => {
-	const { cart, cartTotal } = state;
+	const { cart, cartTotal, numberOfDays } = state;
 	const { type, payload } = action;
 
 	switch (type) {
@@ -66,7 +70,7 @@ export const cartReducer = (state, action) => {
 			return {
 				...state,
 				cartTotal: cart.reduce(
-					(acc, curr) => acc + Number(curr?.price) * curr.qty,
+					(acc, curr) => acc + Number(curr?.price) * curr.qty * numberOfDays,
 					0
 				),
 			};
@@ -74,6 +78,26 @@ export const cartReducer = (state, action) => {
 			return {
 				...state,
 				vat: cartTotal * 0.05,
+			};
+		case ADD_NUMBER_OF_DAYS:
+			return {
+				...state,
+				numberOfDays: Number(payload),
+			};
+		case REMOVE_NUMBER_OF_DAYS:
+			return {
+				...state,
+				// numberOfDays: numberOfDays > 1 ? numberOfDays - 1 : 1,
+			};
+		case ADD_NUMBER_OF_ROOMS:
+			return {
+				...state,
+				// numberOfRooms: numberOfRooms + 1,
+			};
+		case REMOVE_NUMBER_OF_ROOMS:
+			return {
+				...state,
+				// numberOfRooms: numberOfRooms > 1 ? numberOfRooms - 1 : 1,
 			};
 		default:
 			return state;
