@@ -90,7 +90,7 @@ const Checkout = () => {
 									VAT
 								</h4>
 								<p className='self-end text-xs text-[#000000]/80 tracking-[0.008em]'>
-									{formatter.format(cartTotal * numberOfDays * 0.05)}
+									{formatter.format(cartTotal * 0.05)}
 									<span className='text-[8px] text-[#000000]/60'>.00</span>
 								</p>
 							</div>
