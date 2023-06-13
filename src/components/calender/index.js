@@ -68,6 +68,9 @@ function Calender({ setCalendar }) {
 		new Date(2023, 6, 15),
 		new Date(2023, 6, 16),
 		new Date(2023, 6, 17),
+		new Date(2023, 6, 18),
+		new Date(2023, 6, 19),
+		new Date(2023, 6, 21),
 		new Date(2023, 6, 20),
 		new Date(2023, 6, 25),
 	];

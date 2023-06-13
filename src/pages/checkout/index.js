@@ -146,7 +146,7 @@ const Checkout = () => {
 							<h3>Thank you for your patience, your order has been recieved</h3>
 							<p>
 								Kindly note that the total amount to be paid for{" "}
-								{`${days > 0 ? Math.round(days) : 1}`} day(s) is{" "}
+								{`${numberOfDays > 0 ? numberOfDays : 1}`} day(s) is{" "}
 								{`${formatter.format(cartTotal + vatReduction)} `}
 							</p>
 							<p>
