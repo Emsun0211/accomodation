@@ -61,16 +61,16 @@ function Home() {
 				Immerse Yourself in the Splendid of Our Hotels
 			</h2>
 			{/* products */}
-			<div className='   grid grid-cols-2 sm:grid-cols-4 gap-5 mt-14 w-[100%] overflow-x-hidden'>
+			<div className='   grid grid-cols-1 sm:grid-cols-4 gap-5 mt-14 w-[100%] overflow-x-hidden'>
 				{rooms.map((room, idx) => (
 					<Link to={`/details/${room.id}`} key={idx}>
-						<div className='flex flex-col items-center justify-center space-y-6 relative group '>
+						<div className='flex flex-col items-center  justify-center space-y-6 relative group '>
 							<img
 								alt='alt'
 								src={room.img[0]}
 								width={165}
 								height={180}
-								className='sm:w-auto   sm:h-[295px] '
+								className='sm:w-auto w-[90%]   sm:h-[295px] '
 							/>
 							<div>
 								<p className='font-medium text-sm  text-[#000000]/80 mb-2'>
@@ -83,7 +83,7 @@ function Home() {
 								</Link>
 							</div>
 							<div
-								className={`absolute sm:top-[-7%] top-[-15%] right-0 left-0 sm:h-[87%] h-[70%] w-[100%] bg-black/50 z-20 
+								className={`absolute sm:top-[-7%] top-[-7%] right-0 left-0 sm:h-[87%] h-[70%] w-[90%] mx-auto sm:w-[100%] bg-black/50 z-20 
 									
 								hidden group-hover:flex items-center justify-center cursor-pointer`}>
 								<p className='text-white'>view details</p>
