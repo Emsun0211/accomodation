@@ -9,6 +9,8 @@ import Checkout from "./pages/checkout";
 import ContactUs from "./pages/contact";
 import FAQ from "./pages/faq";
 
+// const FAQ = lazy();
+
 function App() {
 	return (
 		<Layout>

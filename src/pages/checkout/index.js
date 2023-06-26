@@ -27,7 +27,6 @@ const Checkout = () => {
 		setTotal(total);
 	}, [cartTotal, days, vat]);
 	const vatReduction = cartTotal * 0.05;
-	console.log(vatReduction);
 
 	return (
 		<div className='mt-3 px-5 max-w-[1350px] mx-auto'>

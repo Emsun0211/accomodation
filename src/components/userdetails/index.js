@@ -19,14 +19,7 @@ const Userdetails = (props) => {
 		city: "",
 	});
 
-	const {
-		startDate,
-		endDate,
-		setEndDate,
-		setStartDate,
-		setDays,
-		setCheckOutOpen,
-	} = props;
+	const { startDate, endDate, setDays, setCheckOutOpen } = props;
 
 	useEffect(() => {
 		setDays((endDate - startDate) / 86400000);

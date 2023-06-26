@@ -1,35 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import Calendar from "react-calendar";
 import { CartContext } from "../../context/cart/CartContext";
 
 function Calender({ setCalendar }) {
 	// View Change
-	const [activeStartDate, setActiveStartDate] = useState(new Date());
 	const [selectedDates, setSelectedDates] = useState([]);
 	const [days, setDays] = useState(1);
 	const { addNumberOfDays } = useContext(CartContext);
-
-	const handleNextClick = () => {
-		// Update the active start date to the next month
-		setActiveStartDate((prevDate) => {
-			const nextMonth = new Date(
-				prevDate.getFullYear(),
-				prevDate.getMonth() + 1
-			);
-			return nextMonth;
-		});
-	};
-
-	const handlePrevClick = () => {
-		// Update the active start date to the previous month
-		setActiveStartDate((prevDate) => {
-			const prevMonth = new Date(
-				prevDate.getFullYear(),
-				prevDate.getMonth() - 1
-			);
-			return prevMonth;
-		});
-	};
 
 	// Date change event
 
@@ -46,34 +23,26 @@ function Calender({ setCalendar }) {
 			setSelectedDates([date]);
 		}
 
-		// Check if the selected date already exists in the selectedDates array
-		// const index = selectedDates.findIndex(
-		// 	(selectedDate) => selectedDate.getTime() === date.getTime()
-		// );
-
-		// if (index > -1) {
-		// 	// If the selected date is already in the array, remove it to deselect
-		// 	const updatedDates = [...selectedDates];
-		// 	updatedDates.splice(index, 1);
-		// 	setSelectedDates(updatedDates);
-		// } else {
-		// 	// If the selected date is not in the array, add it to select
-		// 	setSelectedDates([...selectedDates, date]);
-		// }
+		bookedDates.push(date);
 	};
 
 	// Disabled Dates
 
-	const bookedDates = [
-		new Date(2023, 6, 15),
-		new Date(2023, 6, 16),
-		new Date(2023, 6, 17),
-		new Date(2023, 6, 18),
-		new Date(2023, 6, 19),
-		new Date(2023, 6, 21),
-		new Date(2023, 6, 20),
-		new Date(2023, 6, 25),
-	];
+	const bookedDates = useMemo(
+		() => [
+			new Date(2023, 6, 15),
+			new Date(2023, 6, 16),
+			new Date(2023, 6, 17),
+			new Date(2023, 6, 18),
+			new Date(2023, 6, 19),
+			new Date(2023, 6, 21),
+			new Date(2023, 6, 20),
+			new Date(2023, 6, 25),
+		],
+		[]
+	);
+
+	// console.log(bookedDates);
 
 	const isDateDisabled = (date) => {
 		const today = new Date();

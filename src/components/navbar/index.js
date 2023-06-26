@@ -21,7 +21,6 @@ function NavBar() {
 
 	// Cart Functionality Starts here
 	const cart = useContext(CartContext).cart;
-	// const favourite = useContext(FavouriteContext).favourite;
 
 	return (
 		<div className=' sticky top-0 z-40 bg-[#F4F1D6] border-b border-b-[#969696] w-full overflow-x-hidden '>

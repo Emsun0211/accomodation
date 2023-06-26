@@ -29,10 +29,6 @@ const RoomDetails = () => {
 		numberOfDays,
 	} = useContext(CartContext);
 
-	// const handleAddToCart = (room) => {
-	// 	addToCart(room);
-	// };
-
 	const handleBookNow = (room) => {
 		addToCart(room);
 		navigate("/cart");
@@ -71,7 +67,7 @@ const RoomDetails = () => {
 								className='w-[100%] h-[100%] '
 								width={72}
 								height={20}
-								onClick={(e) => setSelectedImg(room.img[0])}
+								onClick={() => setSelectedImg(room.img[0])}
 							/>
 						</div>
 
@@ -82,7 +78,7 @@ const RoomDetails = () => {
 								className='w-[100%] h-[100%] mx-auto'
 								width={72}
 								height={20}
-								onClick={(e) => setSelectedImg(room.img[1])}
+								onClick={() => setSelectedImg(room.img[1])}
 							/>
 						</div>
 					</div>
@@ -130,7 +126,7 @@ const RoomDetails = () => {
 							<span className='text-sm text-[#000000]/60'>.00</span>
 						</p>
 						<p className='mt-3 text-xl text-[#000000]/80 tracking-[0.008em]'>
-							${` For ${numberOfDays} day(s)`}
+							{` For ${numberOfDays} day(s)`}
 						</p>
 
 						<div className='w-full h-[1px] mt-6 sm:mt-2 bg-[hsla(0,0%,59%,0.3)]'></div>
@@ -141,16 +137,7 @@ const RoomDetails = () => {
 						<div
 							className='flex justify-center gap-x-4 mt-1 border-[1.5px] max-w-[80px] w-full border-[hsla(0,0%,59%,0.6)]
 							 py-1 px-1'>
-							{/* <button
-								onClick={() =>
-									setQuantity((prev) => (prev === 1 ? 1 : prev - 1))
-								}>
-								-
-							</button> */}
-
 							{numberOfDays === isNaN() ? 1 : numberOfDays}
-
-							{/* <button onClick={() => setQuantity((prev) => prev + 1)}>+</button> */}
 						</div>
 					</div>
 
@@ -170,13 +157,6 @@ const RoomDetails = () => {
 							Choose Date
 						</button>
 
-						{/* <button
-							onClick={() => handleBookNow(room)}
-							className={
-								"text-center mt-8 sm:mt-4 w-full py-3 px-4 bg-[hsla(0,0%,0%,1)]  hover:bg-black/50 text-[hsla(0,0%,100%,1)] text-xs font-semibold"
-							}>
-							Book Now
-						</button> */}
 						{cart.find((item) => item.id === room.id) ? (
 							<button
 								disabled
